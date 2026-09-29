@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RBAL - DevOps Control Tower</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="topbar">
+            <div class="rbal-logo">
+                <img src="rbal-logo.png" alt="Raiffeisen Bank Logo" class="logo-img">
+                <span class="logo-text">Raiffeisen <span>BANK</span></span>
+            </div>
+            <div>Last Pull: <span id="timestamp" class="time-badge">Never</span></div>
+        </div>
+
+        <div class="hero">
+            <h1>
+                <span class="hero-main">DevOps Platform</span>
+                <span class="hero-sub">Environment Control Tower</span>
+            </h1>
+        </div>
+    </div>
+
+    <div class="metrics">
+        <div class="card" id="card-total">
+            <h3>Total Environments</h3>
+            <p id="total-count">0</p>
+        </div>
+        <div class="card" id="card-healthy">
+            <h3>Healthy Nodes</h3>
+            <p id="healthy-count">0</p>
+        </div>
+        <div class="card" id="card-status">
+            <h3>Cluster State</h3>
+            <p id="system-status">UNKNOWN</p>
+        </div>
+    </div>
+
+    <h2>Monitored Microservices <span class="subtitle">(Click any row for details)</span></h2>
+
+    <div class="filters">
+        <button class="filter active" data-env="ALL">All</button>
+        <button class="filter" data-env="DEV">DEV</button>
+        <button class="filter" data-env="UAT">UAT</button>
+        <button class="filter" data-env="PROD">PROD</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>System Service Name</th>
+                <th>Environment</th>
+                <th>Endpoint Registry</th>
+                <th>Health Status</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+        </tbody>
+    </table>
+
+    <div class="section-head">
+        <h2>Release History <span class="subtitle">(Built by GitHub Actions, newest first)</span></h2>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Published</th>
+                <th>Version</th>
+                <th>Docker Image</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody id="release-body">
+        </tbody>
+    </table>
+</div>
+
+<div id="details-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="modal-service-name">Service Details</h3>
+            <span class="close-btn" id="close-modal">&times;</span>
+        </div>
+        <div class="modal-body">
+            <p><strong>Endpoint URL:</strong> <code id="modal-service-url"></code></p>
+            <p><strong>Current Status:</strong> <span id="modal-service-status" class="badge"></span></p>
+
+            <div class="system-stats">
+                <h4>Simulated Cluster Metrics</h4>
+                <p>⚙️ <strong>CPU Load:</strong> <span id="modal-cpu">--</span></p>
+                <p>💾 <strong>RAM Usage:</strong> <span id="modal-ram">--</span></p>
+                <p>⏱️ <strong>Uptime:</strong> <span id="modal-uptime">--</span></p>
+            </div>
+
+            <h4>Live Console Logs</h4>
+            <pre class="logs-console" id="modal-logs"></pre>
+        </div>
+    </div>
+</div>
+
+<script src="sc.js"></script>
+</body>
+</html>
