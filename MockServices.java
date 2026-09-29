@@ -14,11 +14,15 @@ public class MockServices {
 
     public static void main(String[] args) throws IOException {
         List<BankService> services = List.of(
-                new BankService("ATM Network API", 8082),
-                new BankService("Mobile Banking Backend", 8083),
-                new BankService("Loan Underwriting Engine", 8084),
-                new BankService("Credit Card Processor", 8085),
-                new BankService("Identity & Auth Service", 8086)
+                new BankService("DEV ATM Network API", 8082),
+                new BankService("DEV Mobile Banking Backend", 8083),
+                new BankService("DEV Card Processor", 8084),
+                new BankService("UAT ATM Network API", 8085),
+                new BankService("UAT Mobile Banking Backend", 8086),
+                new BankService("UAT Card Processor", 8087),
+                new BankService("PROD ATM Network API", 8088),
+                new BankService("PROD Mobile Banking Backend", 8089),
+                new BankService("PROD Card Processor", 8090)
         );
 
         for (BankService service : services) {
