@@ -78,8 +78,6 @@ function setClusterState(text, color) {
     statusText.style.color = color;
 }
 
-/* ---------- Release history (from GitHub) ---------- */
-
 function showReleaseMessage(message) {
     document.getElementById('release-body').innerHTML =
         '<tr><td colspan="4">' + message + '</td></tr>';
@@ -125,8 +123,6 @@ async function fetchReleases() {
         showReleaseMessage("Could not reach GitHub.");
     }
 }
-
-/* ---------- Modal ---------- */
 
 function formatUptime(totalSeconds) {
     const minutes = Math.floor(totalSeconds / 60);
@@ -179,8 +175,6 @@ window.onclick = (event) => {
         modal.style.display = "none";
     }
 };
-
-/* ---------- Filter buttons ---------- */
 
 document.querySelectorAll('.filter').forEach(button => {
     button.onclick = () => {

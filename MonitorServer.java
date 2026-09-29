@@ -26,7 +26,6 @@ public class MonitorServer {
         System.out.println("RBAL Monitor running on http://localhost:8081");
     }
 
-    // Serves the dashboard files from the "web" folder
     static class StaticHandler implements HttpHandler {
         private final List<String> allowedFiles = List.of("index.html", "style.css", "sc.js", "rbal-logo.png");
 
@@ -127,7 +126,6 @@ public class MonitorServer {
                     metrics = response.body();
                 }
             } catch (Exception e) {
-                // Service did not answer, so it stays DOWN
             }
 
             long responseMs = System.currentTimeMillis() - startTime;
