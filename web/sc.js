@@ -17,6 +17,8 @@ async function fetchHealth() {
     } catch (err) {
         console.error("Backend server is unreachable", err);
         document.getElementById('timestamp').innerText = "Backend offline";
+        document.getElementById('total-count').innerText = "--";
+        document.getElementById('healthy-count').innerText = "--";
         setClusterState("UNREACHABLE", "#f87171");
     }
 }
